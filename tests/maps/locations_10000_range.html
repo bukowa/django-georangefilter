@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_5634e7808966439a809a3e1dbbae2cc0 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_5634e7808966439a809a3e1dbbae2cc0" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_5634e7808966439a809a3e1dbbae2cc0 = L.map(
+                                  'map_5634e7808966439a809a3e1dbbae2cc0',
+                                  {center: [52.91228,19.12048],
+                                  zoom: 5,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_fb851a5dc88e429384d2145affc495e7 = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_5634e7808966439a809a3e1dbbae2cc0);
+        
+    
+
+            var circle_39c2a9e8c063433d96e3e77ea333cb2a = L.circle(
+                [52.91228,19.12048],
+                {
+  "bubblingMouseEvents": true,
+  "color": "crimson",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "crimson",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_5634e7808966439a809a3e1dbbae2cc0);
+            
+    
+
+            var circle_f3e6c81ac21b471483f3ce1fad0a33dc = L.circle(
+                [52.91228,19.12048],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_5634e7808966439a809a3e1dbbae2cc0);
+            
+    
+            var callback;
+callback = function (row) {
+	var icon, marker;
+	// Returns a L.marker object
+	icon = L.AwesomeMarkers.icon();
+	marker = L.marker(new L.LatLng(row[0], row[1]));
+	marker.setIcon(icon);
+	return marker;
+};
+
+            (function(){
+                var data = [[53.00035, 19.15003], [52.86975, 19.14986], [53.00848, 19.1575], [52.95454, 19.13954], [52.89864, 19.17967], [52.93802, 19.0676], [52.88333, 18.98333], [52.86667, 19.01667], [52.9885, 19.09397], [53.00239, 19.10102], [52.94254, 19.22201], [52.92958, 19.02979], [52.86485, 19.1116], [52.96057, 19.05122], [52.92703, 18.97082], [52.77508, 19.19577], [52.79011, 19.20865], [52.9, 19.1], [52.95469, 19.01202], [52.97506, 19.19691], [52.95553, 19.18405], [52.8142, 19.21174], [52.93706, 19.13529], [52.91667, 19.05], [52.90986, 19.08898], [52.8, 19.11667], [52.83707, 19.1005], [52.91667, 19.23333], [52.83457, 19.20011], [52.81774, 19.09781], [52.87533, 19.20521], [52.86667, 19.18333], [52.81667, 19.11667], [52.88934, 19.22981], [52.81085, 19.14281], [52.97795, 19.17336], [52.96224, 19.2627], [53.01008, 19.01234], [52.98309, 19.0195], [52.78423, 19.16153], [52.91617, 18.97602], [52.83168, 19.12989], [52.8161, 19.06816], [53.00226, 19.2127], [52.92946, 19.15029], [52.96667, 19.2], [52.97162, 19.26077], [52.94713, 19.03226], [52.95244, 19.12623], [52.94553, 19.13556], [52.80495, 19.10863], [52.97736, 19.0203], [52.91053, 19.03549], [52.9037, 19.23635], [52.92967, 19.23941], [53.04498, 19.05913], [53.03333, 19.05], [53.02382, 19.13432], [52.94634, 19.08936], [52.93653, 19.10866], [52.98118, 19.23014], [52.84436, 19.17852], [52.97953, 19.07802], [52.98333, 19.3], [52.9284, 19.22451], [52.88333, 19.1], [52.88829, 19.11179], [52.82978, 19.09871], [52.91667, 18.98333], [52.9, 19.13333], [52.85667, 19.21548], [52.97975, 19.12026], [52.80927, 19.17501], [52.90994, 19.12016], [52.98798, 19.03319], [52.89022, 19.02874], [52.96509, 19.161], [52.86243, 19.25327], [52.87537, 19.18577], [52.89842, 19.10215], [52.91221, 19.2035], [52.86753, 19.08525], [52.93441, 19.25193], [52.91459, 19.18375], [52.95757, 19.27809], [52.81667, 19.23333], [52.82861, 19.23735], [52.79993, 19.16855], [53.01626, 19.05646], [52.82795, 18.99325], [52.88442, 18.96413], [52.97415, 19.13382], [52.93168, 19.16358], [53.02796, 19.04864], [52.94378, 19.25328], [52.98983, 19.25532], [52.98333, 19.21667], [52.88713, 19.26389], [52.89077, 19.20731], [52.85678, 19.24911], [52.85395, 19.04734], [52.91968, 19.10318], [52.81789, 19.16372], [52.94915, 19.27705], [52.81573, 19.21704], [52.8425, 19.17533], [53.00569, 19.15355], [52.94424, 19.25251], [52.8132, 19.135], [52.91206, 19.1199], [53.01406, 19.13947], [53.02119, 19.12445], [52.90176, 19.08166]];
+                var map = map_5634e7808966439a809a3e1dbbae2cc0;
+                var cluster = L.markerClusterGroup();
+
+                for (var i = 0; i < data.length; i++) {
+                    var row = data[i];
+                    var marker = callback(row);
+                    marker.addTo(cluster);
+                }
+
+                cluster.addTo(map);
+            })();
+            
+</script>
