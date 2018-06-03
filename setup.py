@@ -25,4 +25,5 @@ setup(
     author="Mateusz Kurowski",
     license="The Unlicense",
     packages=["georangefilter"],  # Required
+    install_requires=["Django>=2.0.0"],  # Optional
 )
