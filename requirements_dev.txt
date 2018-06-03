@@ -2,3 +2,4 @@ tox
 docker
 folium
 coverage
+psycopg2>=2.7.4
