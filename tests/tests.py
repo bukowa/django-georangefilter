@@ -45,7 +45,7 @@ class GeoRangeFilterTestCase(TestCase):
         )
         if save_map:
             # create map
-            mapit = folium.Map(location=[city[0], city[1]], zoom_start=5)
+            mapit = folium.Map(location=[city[0], city[1]], zoom_start=7.5, control_scale=True)
             # create circles
             folium.features.Circle(
                 radius=in_range, location=city, color="crimson", fill=False
@@ -58,10 +58,13 @@ class GeoRangeFilterTestCase(TestCase):
                 fill=True,
                 fill_color="#3186cc",
             ).add_to(mapit)
+            # fast marker for a lot of points
+            # FastMarkerCluster(
+            #     [[x.latitude, x.longitude] for x in locations_in_range]
+            # ).add_to(mapit)
             # add locations to map
-            FastMarkerCluster(
-                [[x.latitude, x.longitude] for x in locations_in_range]
-            ).add_to(mapit)
+            for x in locations_in_range:
+                folium.Marker((x.latitude, x.longitude)).add_to(mapit)
             # open file for write
             f = open(
                 os.path.join(
@@ -78,8 +81,5 @@ class GeoRangeFilterTestCase(TestCase):
         self.assertEqual(len(Location.objects.all()), len(self.locations))
 
     def test_filter_in_range_save_map(self):
-        in_range = 10000
-        while in_range < 300000:
-            with self.subTest(range=in_range):
-                self._test_in_range(in_range, in_range, save_map=True)
-            in_range += 10000
+        in_range = 15000
+        self._test_in_range(in_range, in_range, save_map=True)

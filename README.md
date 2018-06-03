@@ -4,7 +4,8 @@ Python function that will annonate your queryset using Postgres **earth_box** an
 ```
 In this module, the Earth is assumed to be perfectly spherical. (If that's too inaccurate for you, you might want to look at the PostGIS project).
 ```
-[Tests results are here](tests/maps): increasing the range of the filter by 10km each time, first circle is the **range** and the second cirle is **range x 2**(so for 10km radius, second circle is 20km radius)<br>
+[Results for filtering in 15km radius](http://earthdistance.mateuszkurowski.pl/), with second circle 30km radius, as you can see its pretty inaccurate.
+![](tests/maps/15000.png)
 ````
 If you want to test in your custom radius, take a look at tests.py file.
 ````
@@ -73,27 +74,5 @@ def filter_in_range(
     in_range = {lookup: LLToEarth(latitude_column_name, longitude_column_name)}
     return queryset.annotate(**earthbox).filter(**in_range)
 ```
-
-You need 2 extensions in postgres: **cube**, **earthdistance**, you can add that to your migrations:
-```python
-    operations = [
-        CreateExtension("cube"),
-        CreateExtension("earthdistance"),
-        # you can also create an index like that:
-        migrations.RunSQL(
-            "CREATE INDEX indexname ON yourapp_yourmodel USING gist(ll_to_earth(latitude_column_name, longitude_column_name));"
-        ),
-    ]
-```
-or
-```python
-from django.db import connection
-
-cursor = connection.cursor()
-cursor.execute("CREATE EXTENSION cube;")
-cursor.execute("CREATE EXTENSION earthdistance;")
-
-```
-
 
 data for map generation used from geonames.org
