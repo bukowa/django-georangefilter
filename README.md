@@ -74,25 +74,6 @@ def filter_in_range(
     return queryset.annotate(**earthbox).filter(**in_range)
 ```
 
-Example model with **filter_in_range** function:
-```python
-
-class City(models.Model):
-    longitude = models.FloatField(db_index=True)
-    latitude = models.FloatField(db_index=True)
-
-    def in_range(self, range_in_meters, **kwargs):
-        return filter_in_range(
-            self.__class__.objects,
-            latitude=self.latitude,
-            longitude=self.longitude,
-            range_in_meters=range_in_meters,
-            latitude_column_name="latitude",
-            longitude_column_name="longitude",
-            **kwargs,
-        )
-```
-
 You need 2 extensions in postgres: **cube**, **earthdistance**, you can add that to your migrations:
 ```python
     operations = [
