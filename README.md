@@ -4,6 +4,9 @@ Python function that will annonate your queryset using Postgres **earth_box** an
 ```
 In this module, the Earth is assumed to be perfectly spherical. (If that's too inaccurate for you, you might want to look at the PostGIS project).
 ```
+```
+pip install git+https://github.com/bukowa/django-georangefilter
+```
 [Results for filtering in 15km radius](http://earthdistance.mateuszkurowski.pl/), with second circle 30km radius, as you can see its pretty inaccurate.
 ![](tests/maps/15000.png)
 ````
